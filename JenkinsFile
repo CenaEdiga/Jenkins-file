@@ -1,0 +1,22 @@
+pipeline{
+agent any
+stages{
+stage('remove'){
+steps{
+sh 'rm -r *'
+sh 'rm -r ../../../../www/html'
+}
+}
+stage('cloning'){
+steps{
+sh 'git clone https://github.com/CenaEdiga/Jenkins-file.git'
+}
+}
+stage('move'){
+steps{
+sh 'mv Jenkins-file/* /var/www/html/'
+}
+}
+}
+}
+
